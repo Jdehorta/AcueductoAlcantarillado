@@ -17,8 +17,15 @@ const PresultadoQdls = document.getElementById("resultadoqdls");
 const txtLongAnchoCresta = document.getElementById("longitudAnchoCresta");
 const txtDiseñoPresa = document.getElementById("diseñoPresa");
 const txtContraciones = document.getElementById("contraciones");
-const PresultadoH = document.getElementById("resultadoH");
 
+const PresultadoH = document.getElementById("resultadoH");
+const PresultadoLongitudAnchoCresta = document.getElementById("resultadoLongitudCresta");
+const PresultadoVelocidadPresa = document.getElementById("resultadoVelocidadPresa");
+
+//DISEÑO CANAL DE ADUCCION Y REJILLA
+const PresultadoXs = document.getElementById("resultadoXS");
+const PresultadoXi= document.getElementById("resultadoXI");
+const PresultadoB = document.getElementById("resultadoB");
 
 
 
@@ -37,6 +44,13 @@ function calcular(){
      QDLS = (1.1*QDMk1)/1000
 
      H = Math.pow(QDLS/(op3*op4),(1/1.5))
+     LongitudCorregida = (op3-0.1*(op5*H))
+     VelocidadPresa = (QDLS/(H*LongitudCorregida))
+
+     XS = (0.36*Math.pow(VelocidadPresa,2/3))+(0.6*Math.pow(H,4/7))
+     XI = (0.18*Math.pow(VelocidadPresa,4/7))+(0.6*Math.pow(H,3/4))
+     B = (XS + 0.1)
+     
 
      PresultadoQMD.style = "color:white"
      PresultadoQMD.innerText = "QMD = " + QMD
@@ -45,6 +59,15 @@ function calcular(){
      PresultadoQdls.innerText = "Qdls = " + QDLS
 
      PresultadoH.innerText = "H = " + H
+     PresultadoLongitudAnchoCresta.innerText = "Longitud Corregida = " + LongitudCorregida
+     PresultadoVelocidadPresa.innerText = "Velocidad del rio de la presa = " + VelocidadPresa
+
+     PresultadoXs.innerText = "Xs = " + XS 
+     PresultadoXi.innerText = "Xi = " + XI
+     PresultadoB.innerText = "B = " + B
+     
+
+     
 
 
        
