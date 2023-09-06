@@ -27,7 +27,9 @@ const PresultadoXs = document.getElementById("resultadoXS");
 const PresultadoXi= document.getElementById("resultadoXI");
 const PresultadoB = document.getElementById("resultadoB");
 
-
+const txtVb= document.getElementById("vb");
+const txtDiametro = document.getElementById("diametro");
+const txtK = document.getElementById("k")
 
 btnCalcular.addEventListener('click', calcular);
 function calcular(){
@@ -36,6 +38,10 @@ function calcular(){
      const op3 = parseFloat(txtLongAnchoCresta.value)
      const op4 = parseFloat(txtDiseñoPresa.value)
      const op5 = parseFloat(txtContraciones.value)
+
+     const opVb = parseFloat(txtVb.value)
+     const opDiametro = parseFloat(txtDiametro.value)
+     const opK= parseFloat(txtK.value)
    
 
      QMD=(op1*op2)/86400
